@@ -29,7 +29,12 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<script src="/javascripts/libs/jquery.stellar.min.js" type="text/javascript"></script>
+<script>
+$(function() {
+  $.stellar();
+});
+</script>
   
 
 </head>
@@ -59,7 +64,11 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div id="about">
+      <div class="center-div" data-stellar-background-ratio="2">
+  <img src="/images/midwest.io-logo.png" title="Midwest.io" >
+</div>
+
+<div id="about" data-stellar-ratio="2">
   <h1>About</h1>
   Midwest.io is a two-day conference in the heart of the US, bringing together developers for an electic collection of talks covering the latest trends, best practices, and research in the field of computing.
   <p />
