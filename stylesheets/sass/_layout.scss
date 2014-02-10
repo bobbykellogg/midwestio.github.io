@@ -1,0 +1,295 @@
+/* Shared Styles
+----------------------------------------------- */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: $headerHeight 0 0;
+  background: $bodyBackground;
+  color: $textColor;
+  font: $fontNormal #{$fontSizeRem}/#{$fontLineHeightRem} $fontFamilySerif;
+}
+
+h1 {
+  font-size: $fontSizePx * 3;
+  font-size: $fontSizeRem * 3;
+
+  & + p,
+  & + address,
+  & + .grid {
+    margin-top: 2em;
+  }
+}
+
+h2 {
+  font-size: $fontSizePx * 2.5;
+  font-size: $fontSizeRem * 2.5;
+
+  & + p {
+    margin-top: 2em;
+  }
+}
+
+h3 {
+  font-size: $fontSizePx * 2;
+  font-size: $fontSizeRem * 2;
+}
+
+h4 {
+  font-size: $fontSizePx * 1.5;
+  font-size: $fontSizeRem * 1.5;
+}
+
+h5, h6 {
+  font-size: $fontSizePx;
+  font-size: $fontSizeRem;
+}
+
+p {
+  margin: 1.5em 0;
+}
+
+a {
+  color: $linkColor;
+
+  &:hover {
+    color: $linkHover;
+  }
+}
+
+.clearfix, %clearfix {
+  display: inline-block;
+
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+.content, %content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+/* Grid Styles
+----------------------------------------------- */
+.unit {
+  padding: 1em 2em;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Layout
+----------------------------------------------- */
+#site-header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  height: $headerHeight;
+  padding: $headerHeight/3 0;
+  background-color: $headerBackground;
+  color: $headerColor;
+
+  .mobile-nav {
+    display: none;
+    position: absolute;
+    top: $headerHeight / 3;
+    right: 2em;
+  }
+
+  nav {
+    @extend %clearfix;
+    margin-top: 2em;
+    font-family: $fontFamilySans;
+
+    .subscription {
+      float: right;
+
+      li {
+        margin-right: 0;
+      }
+    }
+
+    .main-navigation {
+      float: left;
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 2em;
+    }
+
+    a {
+      padding: 0.5em 1em;
+      color: rgba(255, 255, 255, 0.7);
+
+      &:hover {
+        color: $textReverse;
+      }
+    }
+
+    .active a {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: $textReverse;
+      transition-duration: 0.3s;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+main {}
+
+/* Slides
+----------------------------------------------- */
+.slide, %slide {
+  position: relative;
+  padding: $headerHeight/2 0;
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 110%;
+}
+
+.blank {
+  @extend %slide;
+  min-height: 400px;
+  background-color: rgb(0, 0, 0);
+}
+
+#home {
+  min-height: 600px;
+  padding-left: 0;
+  padding-right: 0;
+  background-image: url(/images/bg-kc.jpg);
+}
+
+#blank1 {
+  background-image: url(/images/blank1.jpg);
+}
+
+#blank2 {
+  background-image: url(/images/blank2.jpg);
+  background-position: bottom;
+}
+
+#blank3 {
+  background-image: url(/images/blank3.jpg);
+}
+
+#blank4 {
+  background-image: url(/images/blank4.jpg);
+}
+
+article {
+  @extend %content;
+}
+
+#site-footer {
+  padding: 1em 0;
+  background: rgb(0, 0, 0);
+  color: $textReverse;
+}
+
+/* Media Breakpoints
+----------------------------------------------- */
+@media (max-width: 1024px) {
+  #site-header nav {
+    .main-navigation li {
+      margin-right: 0.5em;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: $fontSizePx * 2;
+    font-size: $fontSizeRem * 2;
+
+    & + p {
+      margin-top: 2em;
+    }
+  }
+
+  h2 {
+    font-size: $fontSizePx * 1.5;
+    font-size: $fontSizeRem * 1.5;
+
+    & + p {
+      margin-top: 2em;
+    }
+  }
+
+  h3 {
+    font-size: $fontSizePx;
+    font-size: $fontSizeRem;
+  }
+
+  h4, h5, h6 {
+    font-size: $fontSizePx;
+    font-size: $fontSizeRem;
+  }
+
+  #site-header {
+    .mobile-nav {
+      display: block;
+    }
+
+    nav {
+      display: none;
+    }
+  }
+
+  .blank, #home {
+    min-height: 400px;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  p {
+    margin: 1em 0;
+  }
+
+  .site-header {
+    position: static;
+    padding: 1em 0;
+
+    h1 {
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 1em;
+      text-align: center;
+
+      li {
+        margin-left: 0;
+      font-size: 90%;
+      }
+
+      a {
+        padding: 0.25em 0.5em;
+      }
+    }
+  }
+
+  .unit {
+    padding: 0.25em 1em;
+  }
+
+  #home, .blank {
+    display: none;
+  }
+}

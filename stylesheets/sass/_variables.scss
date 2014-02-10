@@ -1,0 +1,27 @@
+$bodyBackground: rgb(255, 255, 255);
+$borderColor: rgb(204, 204, 204);
+
+$linkColor: rgb(0, 153, 204);
+$linkHover: rgb(204, 0, 0);
+
+$textColor: rgb(51, 51, 51);
+$textReverse: rgb(255, 255, 255);
+
+$fontFamilySans: 'PT Sans', 'Helvetica Neue', arial, sans-serif;
+$fontFamilySerif: 'PT Serif', 'Georgia', serif;
+
+$fontSizePx: 16px;
+$fontSizeRem: 1.6rem;
+$fontLineHeightPx: 28px;
+$fontLineHeightRem: 2.8rem;
+
+$fontNormal: 400;
+$fontBold: 700;
+
+$headerBackground: rgb(0, 0, 0);
+$headerColor: rgb(255, 255, 255);
+$headerHeight: 150px;
+
+//@media (max-width: 480px) {
+//  $headerHeight: 100px;
+//}

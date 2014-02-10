@@ -1,0 +1,160 @@
+/* CSS Reset html5doctor.com Reset Stylesheet v1.6.1 http: //html5doctor.com/html-5-reset-stylesheet/ Richard Clark http: //richclarkdesign.com
+----------------------------------------------- */
+*, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+
+body { line-height: 1; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+nav ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+a { margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom: 1px dotted #cccccc; cursor: help; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #cccccc; margin: 1em 0; padding: 0; }
+
+input, select { vertical-align: middle; }
+
+/** Columns in SSGS rely on `box-sizing: border-box;` in order to work properly. It is considered good practice to just apply the 'correct' box-sizing to all elements, even by people like Paul Irish. (see: http://paulirish.com/2012/box-sizing-border-box-ftw/)  Without Compass: -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;  With Compass: @import "compass/css3/box-sizing"; @include box-sizing(border-box); */
+/** $gutters is the only variable you'll ever need to set yourself. Use whatever kind of value you want, be it px, em, rem or even percentages (although that would) really miss the whole point of SSGS. */
+@media (max-width: 768px) { .grid:after { line-height: 1; } }
+/** SSGS uses floats to do the heavy lifting with the layout so there needs to be a clearfix. The one that's worked best for me is Nicolas Gallagher's `Micro Clearfix` hack. It is included below. If you already have a clearfix in place, feel free to remove it, but be sure to change the `@extend` rule inside `.grid`. (see: http://nicolasgallagher.com/micro-clearfix-hack/) */
+.grid, #site-header nav { *zoom: 1; }
+.grid::before, #site-header nav::before, .grid::after, #site-header nav::after { content: " "; display: table; }
+.grid::after, #site-header nav::after { clear: both; }
+
+/** With SSGS, you define grid columns in your CSS using mixins. It's quite a great thing as it removes the dependency on all those classes in your HTML.  Example: .item { @include grid-col("one half"); // Equivalent to `grid-col("1/2")`. }  You could also change SSGS by mapping the mixins to classes.  Example: .one-half { @include grid-col("one half"); }  Still, it's prefferable to work with the mixins directly in your CSS as it allows easy changes of the column count to enable a fully responsive grid. The following example shows a typical mobile-first grid (i.e. 1-2-3-4 columns).  Example: .item { @include grid-col;
+ @media (min-width: 30em) { @include grid-col("one half"); }
+ @media (min-width: 40em) { @include grid-col("one third"); }
+ @media (min-width: 50em) { @include grid-col("one quarter"); } } */
+.full, .one-half, .one-third, .two-thirds, .one-quarter, .three-quarters, .one-fifth, .four-fifths, .one-sixth, .five-sixth, .golden-short, .golden-wide { display: block; float: left; padding-left: 1em; }
+
+/** One of the most cumbersome things with traditional grid system is their use of classes like `.end`, `.omega` or the like in order to remove the gutter at the start or the end of a row. With SSGS this is not necessary anymore, yay! Allthough you don't need to add the .grid class to your HTML, I think it's the preferrable way, as it makes the basic structure much more easily visible. However, feel free to just @extend the class from within your SCSS.  Example: <div class="grid"> <div class="item"></div> <div class="item"></div> </div>
+ .item { @include grid-col("one half"); }  Note: Don't apply things like backgrounds or borders to the columns themselves. It's neither good practice (use grids only for layout, not for styling) nor will it work with SGSS. Use an element inside the column to do those things. */
+.grid { margin-left: -1em; }
+
+.full { width: 100%; }
+
+.one-half { width: 50%; }
+
+.one-third { width: 33.333%; }
+
+.two-thirds { width: 66.666%; }
+
+.one-quarter { width: 25%; }
+
+.three-quarters { width: 75%; }
+
+.one-fifth { width: 20%; }
+
+.four-fifths { width: 80%; }
+
+.one-sixth { width: 16.666%; }
+
+.five-sixth { width: 83.333%; }
+
+.golden-short { width: 38.195%; }
+
+.golden-wide { width: 61.805%; }
+
+@media (max-width: 767px) { .full, .one-half, .one-third, .two-thirds, .one-quarter, .three-quarters, .one-fifth, .four-fifths, .one-sixth, .five-sixth, .golden-short, .golden-wide { width: 100%; margin-bottom: 1em; } }
+/* Shared Styles
+----------------------------------------------- */
+html { font-size: 62.5%; }
+
+body { padding: 150px 0 0; background: white; color: #333333; font: 400 1.6rem/2.8rem "PT Serif", "Georgia", serif; }
+
+h1 { font-size: 48px; font-size: 4.8rem; }
+h1 + p, h1 + address, h1 + .grid { margin-top: 2em; }
+
+h2 { font-size: 40px; font-size: 4rem; }
+h2 + p { margin-top: 2em; }
+
+h3 { font-size: 32px; font-size: 3.2rem; }
+
+h4 { font-size: 24px; font-size: 2.4rem; }
+
+h5, h6 { font-size: 16px; font-size: 1.6rem; }
+
+p { margin: 1.5em 0; }
+
+a { color: #0099cc; }
+a:hover { color: #cc0000; }
+
+.clearfix, .grid, #site-header nav { display: inline-block; }
+.clearfix:after, .grid:after, #site-header nav:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+.content, article { max-width: 1200px; margin: 0 auto; padding: 0 2em; }
+
+/* Grid Styles
+----------------------------------------------- */
+.unit { padding: 1em 2em; background: rgba(0, 0, 0, 0.1); }
+
+/* Layout
+----------------------------------------------- */
+#site-header { position: fixed; z-index: 10; top: 0; width: 100%; height: 150px; padding: 50px 0; background-color: black; color: white; }
+#site-header .mobile-nav { display: none; position: absolute; top: 50px; right: 2em; }
+#site-header nav { margin-top: 2em; font-family: "PT Sans", "Helvetica Neue", arial, sans-serif; }
+#site-header nav .subscription { float: right; }
+#site-header nav .subscription li { margin-right: 0; }
+#site-header nav .main-navigation { float: left; }
+#site-header nav li { display: inline-block; margin-right: 2em; }
+#site-header nav a { padding: 0.5em 1em; color: rgba(255, 255, 255, 0.7); }
+#site-header nav a:hover { color: white; }
+#site-header nav .active a { background-color: rgba(255, 255, 255, 0.2); color: white; transition-duration: 0.3s; }
+#site-header a { text-decoration: none; }
+
+/* Slides
+----------------------------------------------- */
+.slide, .blank { position: relative; padding: 75px 0; background-attachment: fixed; background-position: 0 0; background-repeat: no-repeat; background-size: 110%; }
+
+.blank { min-height: 400px; background-color: black; }
+
+#home { min-height: 600px; padding-left: 0; padding-right: 0; background-image: url(/images/bg-kc.jpg); }
+
+#blank1 { background-image: url(/images/blank1.jpg); }
+
+#blank2 { background-image: url(/images/blank2.jpg); background-position: bottom; }
+
+#blank3 { background-image: url(/images/blank3.jpg); }
+
+#blank4 { background-image: url(/images/blank4.jpg); }
+
+#site-footer { padding: 1em 0; background: black; color: white; }
+
+/* Media Breakpoints
+----------------------------------------------- */
+@media (max-width: 1024px) { #site-header nav .main-navigation li { margin-right: 0.5em; } }
+@media (max-width: 768px) { h1 { font-size: 32px; font-size: 3.2rem; }
+  h1 + p { margin-top: 2em; }
+  h2 { font-size: 24px; font-size: 2.4rem; }
+  h2 + p { margin-top: 2em; }
+  h3 { font-size: 16px; font-size: 1.6rem; }
+  h4, h5, h6 { font-size: 16px; font-size: 1.6rem; }
+  #site-header .mobile-nav { display: block; }
+  #site-header nav { display: none; }
+  .blank, #home { min-height: 400px; background-size: cover; } }
+@media (max-width: 480px) { body { padding: 0; }
+  p { margin: 1em 0; }
+  .site-header { position: static; padding: 1em 0; }
+  .site-header h1 { text-align: center; }
+  .site-header nav { margin-top: 1em; text-align: center; }
+  .site-header nav li { margin-left: 0; font-size: 90%; }
+  .site-header nav a { padding: 0.25em 0.5em; }
+  .unit { padding: 0.25em 1em; }
+  #home, .blank { display: none; } }
